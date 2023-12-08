@@ -1,7 +1,7 @@
 # PiCKR
-A color manipulation app which provides information about a color - its color codes, name, etc. it can be used to generate various type of shades such as analogic, triad, monochrome etc. and has a color palette of 5 unique harmonious colors.
+A color manipulation app which provides information about a color - its color codes, name, etc. It can be used to generate various type of shades such as analogic, triad, monochrome etc. and has a color palette of 5 unique harmonious colors. 
 
-![image](https://github.com/SouravKAgarwal/pickr-app/assets/122669205/6671aaec-4390-4c24-9e54-d9a1b24db3b5)
+![image](https://github.com/SouravKAgarwal/PiCKR/assets/122669205/efe29d5e-ba7c-4ab7-99de-9b227232f1c2)
 
 ## Color formats currently supported
 - `HEX`
