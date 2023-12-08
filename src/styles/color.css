@@ -1,0 +1,32 @@
+.responsive .react-colorful {
+  height: 180px;
+  width: auto;
+}
+
+.responsive .react-colorful__saturation {
+  border-radius: 4px 4px 0 0;
+}
+.responsive .react-colorful__hue {
+  height: 20px;
+  border-radius: 0 0 4px 4px;
+}
+
+@media screen and (max-width: 530px) {
+  .responsive .react-colorful {
+    height: 160px;
+    width: auto;
+    padding: 5px 10px;
+  }
+  .responsive .react-colorful__hue {
+    height: 20px;
+    border-radius: 0 0 4px 4px;
+  }
+  .responsive .react-colorful__hue-pointer {
+    width: 25px;
+    height: 25px;
+  }
+  .responsive .react-colorful__saturation-pointer {
+    width: 10px;
+    height: 10px;
+  }
+}

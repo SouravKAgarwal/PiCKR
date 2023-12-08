@@ -1,0 +1,117 @@
+.header {
+  position: fixed;
+  transform: translateY(0);
+  width: 100%;
+  height: 60px;
+  margin: 0 auto;
+  padding: 0 15px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  transition: all ease 0.5s;
+}
+.header.top {
+  background: #000000;
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+}
+.header.show {
+  background-color: rgb(0, 0, 0);
+}
+.header.hide {
+  transform: translateY(-60px);
+}
+.logo {
+  cursor: pointer;
+  height: 40px;
+  width: 120px;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.header .menuItems {
+  list-style-type: none;
+  display: none;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .header .menuItems {
+    display: flex;
+  }
+  img {
+    width: 200px;
+  }
+}
+.header .menuItems .menuItem {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  color: white;
+  font-weight: 700;
+  position: relative;
+  cursor: pointer;
+}
+.header .menuItems .menuItem svg {
+  font-size: 18px;
+}
+.header .menuItems .menuItem:hover {
+  color: gainsboro;
+}
+.header .mobileMenuItems {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .header .mobileMenuItems {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .logo {
+    width: 100px;
+    height: 30px;
+  }
+}
+.header .mobileMenuItems svg {
+  font-size: 18px;
+  color: white;
+}
+.header.mobileView {
+  background: #000000;
+}
+.header.mobileView .menuItems {
+  display: flex;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background: black;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: mobileMenu 0.3s ease forwards;
+}
+.header.mobileView .menuItems .menuItem {
+  font-size: 16px;
+  width: 100%;
+  height: auto;
+  padding: 10px 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@keyframes mobileMenu {
+  0% {
+    transform: translateY(-130%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
