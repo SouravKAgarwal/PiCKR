@@ -65,7 +65,7 @@ const ColorInfo = () => {
   return (
     <Fragment>
       {loading ? (
-        <Spinner className="py-[14.25rem] md:py-[14rem]" />
+        <Spinner className="h-[84vh]" />
       ) : (
         <Fragment>
           <div className="flex flex-col items-center p-4">
