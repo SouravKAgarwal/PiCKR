@@ -8,7 +8,6 @@ import { server } from "../index";
 import ToastComp from "./ToastComp";
 import { toast } from "react-hot-toast";
 import Heading from "./Heading";
-import SyntaxHighlighter from "react-syntax-highlighter";
 
 const Colors = () => {
   const [currentColor, setCurrentColor] = useState({
@@ -73,20 +72,20 @@ const Colors = () => {
     <Fragment>
       <Fragment>
         <div className="mx-auto">
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center h-[84vh]">
             <div className="flex flex-col items-center">
               <Heading
                 name="Colors"
                 show={true}
                 spanShow={true}
                 spanText={"Select any color to get information"}
-                textClass="mt-4"
+                textClass="text-[2rem] mt-2"
               />
             </div>
             {loading ? (
-              <Spinner className="py-[7.5rem] md:py-[9.75rem]" />
+              <Spinner className="h-[60vh]" />
             ) : (
-              <div className="w-[90vw] md:w-[50vw] lg:w-[40vw] xl:w-[30vw] items-center mb-4">
+              <div className="w-[90vw] sm:w-[75vw] md:w-[60vw] lg:w-[50vw] xl:w-[35vw] items-center mb-4">
                 <div className="responsive">
                   <RgbColorPicker
                     color={currentColor}
@@ -95,20 +94,11 @@ const Colors = () => {
                 </div>
 
                 <div className="flex w-full flex-col justify-center items-center py-4">
-                  <div className="flex flex-col text-xs rounded-xl bg-[rgb(240, 240, 240)]">
+                  <div className="flex flex-col items-start text-[1.5vh] md:text-[2vh] font-semibold gap-2">
                     {tags.map(({ id, tag, value }) => (
-                      <div
-                        key={id}
-                        className="flex flex-row justify-center items-center "
-                      >
-                        <div>{tag}</div>
-                        <SyntaxHighlighter
-                          key={id}
-                          className="flex justify-start items-center flex-row gap-4"
-                          language="html"
-                        >
-                          {value}
-                        </SyntaxHighlighter>
+                      <div key={id} className="flex flex-row gap-2">
+                        {tag}
+                        <span className="font-medium">{value}</span>
                       </div>
                     ))}
                   </div>
@@ -116,7 +106,7 @@ const Colors = () => {
                     link={`/color/rgb/${colorRgb}`}
                     text="Know More..."
                     show={true}
-                    className="mt-2"
+                    className="mt-[2vh] bg-white text-black hover:bg-black hover:text-white"
                   />
                 </div>
               </div>

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LinkButton from "./LinkButton";
 import ToastComp from "./ToastComp";
 import { toast } from "react-hot-toast";
 
 const ColorsDisplay = () => {
   const modes = [
-    { id: 0, mode: "Select scheme type" },
+    { id: 0, mode: "--Select an option--" },
     { id: 1, mode: "analogic" },
     { id: 2, mode: "triad" },
     { id: 3, mode: "monochrome" },
@@ -19,28 +19,35 @@ const ColorsDisplay = () => {
   const [mode, setMode] = useState("");
   const [type, setType] = useState("");
 
-  const typeFinder = (color) => {
-    if (color.length > 0) {
-      if (
-        color.indexOf("#") !== -1 &&
-        (color.length === 4 || color.length === 7)
-      ) {
-        setType("hex");
-      } else if (color.indexOf(",") !== -1) {
-        setType("rgb");
-      } else if (color.indexOf("#") !== -1 && color.indexOf(",") !== -1) {
-        toast.error("Invalid color code!");
-      } else {
-        toast.error("Invalid color code!");
+  useEffect(() => {
+    const typeFinder = (color) => {
+      if (color.length > 0) {
+        if (
+          color.indexOf("#") !== -1 &&
+          (color.length === 4 || color.length === 7)
+        ) {
+          setType("hex");
+          toast.remove();
+        } else if (color.indexOf(",") !== -1) {
+          setType("rgb");
+          toast.remove();
+        } else if (color.indexOf("#") !== -1 && color.indexOf(",") !== -1) {
+          toast.error("Invalid color code!");
+        } else {
+          toast.error("Invalid color code!", {
+            id: "error",
+          });
+        }
       }
-    }
-  };
+    };
+    typeFinder(color);
+  }, [color]);
 
   const colorCode = color.replace("#", "");
 
   return (
     <>
-      <div className="flex justify-center min-h-[95vh]">
+      <div className="flex justify-center min-h-[84vh]">
         <div className="flex flex-col items-center justify-center">
           <div className="flex w-full flex-col md:flex-row justify-center md:items-start md:gap-16">
             <div className="flex flex-col items-center justify-center mt-10 gap-4">
@@ -48,18 +55,17 @@ const ColorsDisplay = () => {
               <input
                 type="text"
                 placeholder="#FFFFFF or rgb(255,255,255)"
-                className="px-2 py-3 border-2 outline-none rounded-[100px] placeholder:text-sm placeholder:select-none"
+                className="py-2 px-4 border-2 outline-none rounded-[100px] placeholder:text-sm placeholder:select-none"
                 onChange={(e) => setColor(e.target.value)}
               />
             </div>
             <div className="flex flex-col items-center justify-center mt-10 gap-4">
-              <h4 className="font-bold">Select the color scheme type</h4>
+              <h4 className="font-bold">Select the scheme type</h4>
 
               <div className="relative">
                 <select
-                  className="w-full p-3 outline-none border-2 rounded-[100px] text-black bg-white shadow-sm focus:border-black"
+                  className="w-full py-2 px-4 outline-none border-2 rounded-[100px] text-black bg-white shadow-sm focus:border-black"
                   onChange={(e) => setMode(e.target.value)}
-                  onFocus={() => typeFinder(color)}
                 >
                   {modes.map(({ id, mode }) => (
                     <option key={id}>{mode}</option>

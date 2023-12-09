@@ -2,10 +2,10 @@
   position: fixed;
   transform: translateY(0);
   width: 100%;
-  height: 60px;
+  height: 9vh;
   margin: 0 auto;
   padding: 0 15px;
-  z-index: 1;
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,7 +21,7 @@
   background-color: rgb(0, 0, 0);
 }
 .header.hide {
-  transform: translateY(-60px);
+  transform: translateY(-9vh);
 }
 .logo {
   cursor: pointer;
@@ -46,7 +46,7 @@ img {
   }
 }
 .header .menuItems .menuItem {
-  height: 60px;
+  height: 2rem;
   display: flex;
   align-items: center;
   margin: 0 15px;
@@ -56,7 +56,7 @@ img {
   cursor: pointer;
 }
 .header .menuItems .menuItem svg {
-  font-size: 18px;
+  font-size: 2.5vh;
 }
 .header .menuItems .menuItem:hover {
   color: gainsboro;
@@ -78,7 +78,7 @@ img {
   }
 }
 .header .mobileMenuItems svg {
-  font-size: 18px;
+  font-size: 2.5vh;
   color: white;
 }
 .header.mobileView {
@@ -87,7 +87,7 @@ img {
 .header.mobileView .menuItems {
   display: flex;
   position: absolute;
-  top: 60px;
+  top: 48px;
   left: 0;
   background: black;
   flex-direction: column;

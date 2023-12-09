@@ -34,3 +34,9 @@
   font-family: "Montserrat", "Poppins", sans-serif;
   box-sizing: border-box;
 }
+
+@layer utilities {
+  body {
+    background: linear-gradient(#fff, #f1f1f1);
+  }
+}

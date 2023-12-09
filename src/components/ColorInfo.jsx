@@ -69,7 +69,7 @@ const ColorInfo = () => {
       ) : (
         <Fragment>
           <div className="flex flex-col items-center p-4">
-            <Heading name={colorName} show={true} textClass="py-6" />
+            <Heading name={colorName} show={true} textClass="text-[1.8rem]" />
             <div className="flex max-w-2xl flex-wrap justify-center items-center">
               <div className="flex w-40 h-40">
                 <img
@@ -78,7 +78,7 @@ const ColorInfo = () => {
                   alt={colorName}
                 />
               </div>
-              <div className="w-full mt-8">
+              <div className="w-full mt-8 text-[1rem]">
                 The color {colorName} is represented by the hex code{" "}
                 <span className="uppercase font-bold">{colorHEX}</span>. Its RGB
                 values is <span className="font-bold">{colorRGB}</span>. The
@@ -89,7 +89,7 @@ const ColorInfo = () => {
               </div>
 
               <div className="flex flex-col justify-center items-center mt-10">
-                <h1 className="font-bold text-3xl underline">
+                <h1 className="font-bold text-[1.6rem] underline">
                   Schemes of {colorName}
                 </h1>
                 {modes.map(({ id, mode }) => (

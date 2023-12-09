@@ -75,20 +75,20 @@ function ColorPalette() {
             name="Color Palette"
             spanShow={isSmallDevice ? false : true}
             spanText={`Press ${buttonText} to Generate`}
-            textClass="text-[40px] md:text-5xl"
+            textClass="text-[2rem]"
           />
         </div>
 
         {isSmallDevice && (
           <button
-            className="bg-white text-black font-medium border-black border-2 rounded-[100px] m-2 px-3 py-2"
+            className="bg-white text-black hover:bg-black hover:text-white font-medium border-black border-2 rounded-[100px] m-2 px-3 py-2 md:px-6 md:py-3 outline-none"
             onClick={toggleGenerate}
           >
             Generate
           </button>
         )}
       </div>
-      <div className="flex flex-wrap justify-center items-center md:justify-start h-[65vh]">
+      <div className="flex flex-wrap justify-center items-center md:justify-start h-[66vh]">
         {colors.map((color, index) => (
           <div key={index} className="w-screen md:w-1/5 h-1/5 md:h-[100%]">
             <div

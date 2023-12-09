@@ -6,7 +6,7 @@ const Heading = ({ name, mode, show, spanText, spanShow, className, textClass })
       {show && (
         <div className={`flex flex-col items-center m-4 ${className}`}>
           <h1
-            className={` sm:text-5xl text-4xl font-bold ${textClass}`}
+            className={`sm:text-[7vh] text-[5vh] font-bold ${textClass}`}
           >
             {name}
           </h1>
@@ -14,7 +14,7 @@ const Heading = ({ name, mode, show, spanText, spanShow, className, textClass })
             {mode}
           </span>
           {spanShow && (
-            <span className="py-2 pb-4 sm:text-md w-9/10 text-center xs:text-[14px] text-gray-900 z-99">
+            <span className="sm:text-md w-9/10 text-center xs:text-[1.9vh] text-gray-900">
               {spanText}
             </span>
           )}

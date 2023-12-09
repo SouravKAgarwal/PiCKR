@@ -72,9 +72,9 @@ const ColorShades = ({
     <Fragment>
       {loading ? (
         colorSpin ? (
-          <Spinner className="py-[8rem]" />
+          <Spinner className="h-[30vh]" />
         ) : (
-          <Spinner className="py-[14.25rem] md:py-[17rem]" />
+          <Spinner className="h-[84vh]" />
         )
       ) : errorFound ? (
         <ErrorComponent
@@ -84,7 +84,7 @@ const ColorShades = ({
       ) : (
         <div
           className={`flex flex-col items-center ${
-            fullHeight ? "min-h-[90vh] mb-4" : ""
+            fullHeight ? "h-[84vh] py-4" : ""
           }`}
         >
           <Heading
@@ -97,12 +97,12 @@ const ColorShades = ({
           <div className="flex flex-wrap justify-center items-center p-2">
             {shades.map((shade, index) => (
               <div
-                className="flex flex-col items-center m-1 border-2 border-black rounded-xl font-semibold text-md"
+                className="flex flex-col items-center m-1 border-2 border-black rounded-xl font-semibold text-md w-32"
                 key={index}
               >
                 <CopyToClipboard text={`${shade.hex.value}`}>
                   <img
-                    className="rounded-t-xl h-28 w-28 md:h-32 md:w-32 select-none cursor-pointer"
+                    className="rounded-t-xl w-full h-full select-none cursor-pointer"
                     src={`${server}/id?format=svg&hex=${shade.hex.clean}`}
                     onClick={notify}
                     alt={shade.hex.clean}
