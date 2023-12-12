@@ -25,12 +25,12 @@ const Colors = () => {
   const [colorCmyk, setColorCmyk] = useState("");
 
   const tags = [
-    { id: 1, tag: "Name :", value: colorName },
-    { id: 2, tag: "RGB :", value: output },
-    { id: 3, tag: "HEX :", value: colorHex },
-    { id: 4, tag: "HSL :", value: colorHsl },
-    { id: 5, tag: "HSV :", value: colorHsv },
-    { id: 6, tag: "CMYK :", value: colorCmyk },
+    { id: 1, tag: "Name :", value: colorName, color: "red-500" },
+    { id: 2, tag: "RGB :", value: output, color: "green-600" },
+    { id: 3, tag: "HEX :", value: colorHex, color: "blue-900" },
+    { id: 4, tag: "HSL :", value: colorHsl, color: "green-600" },
+    { id: 5, tag: "HSV :", value: colorHsv, color: "blue-900" },
+    { id: 6, tag: "CMYK :", value: colorCmyk, color: "black" },
   ];
 
   useEffect(() => {
@@ -70,50 +70,48 @@ const Colors = () => {
 
   return (
     <Fragment>
-      <Fragment>
-        <div className="mx-auto">
-          <div className="flex flex-col justify-center items-center h-[84vh]">
-            <div className="flex flex-col items-center">
-              <Heading
-                name="Colors"
-                show={true}
-                spanShow={true}
-                spanText={"Select any color to get information"}
-                textClass="text-[2rem] mt-2"
+      <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col items-center">
+          <Heading
+            name="Colors"
+            show={true}
+            spanShow={true}
+            spanText={"Select any color to get information"}
+            textClass="text-[2rem] mt-2"
+          />
+        </div>
+        {loading ? (
+          <Spinner className="h-[65vh]" />
+        ) : (
+          <div className="w-[90vw] sm:w-[75vw] md:w-[60vw] lg:w-[50vw] xl:w-[35vw] items-center mb-4">
+            <div className="responsive">
+              <RgbColorPicker
+                color={currentColor}
+                onChange={handleColorChange}
               />
             </div>
-            {loading ? (
-              <Spinner className="h-[60vh]" />
-            ) : (
-              <div className="w-[90vw] sm:w-[75vw] md:w-[60vw] lg:w-[50vw] xl:w-[35vw] items-center mb-4">
-                <div className="responsive">
-                  <RgbColorPicker
-                    color={currentColor}
-                    onChange={handleColorChange}
-                  />
-                </div>
 
-                <div className="flex w-full flex-col justify-center items-center py-4">
-                  <div className="flex flex-col items-start text-[1.5vh] md:text-[2vh] font-semibold gap-2">
-                    {tags.map(({ id, tag, value }) => (
-                      <div key={id} className="flex flex-row gap-2">
-                        {tag}
-                        <span className="font-medium">{value}</span>
-                      </div>
-                    ))}
+            <div className="flex w-full flex-col justify-center items-center py-4">
+              <div className="flex flex-col items-start text-[.85rem] px-6 py-3 font-semibold gap-2">
+                {tags.map(({ id, tag, value, color }) => (
+                  <div key={id} className="flex flex-row font-bold gap-2">
+                    {tag}
+                    <span className={`font-semibold text-${color}`}>
+                      {value}
+                    </span>
                   </div>
-                  <LinkButton
-                    link={`/color/rgb/${colorRgb}`}
-                    text="Know More..."
-                    show={true}
-                    className="mt-[2vh] bg-white text-black hover:bg-black hover:text-white"
-                  />
-                </div>
+                ))}
               </div>
-            )}
+              <LinkButton
+                link={`/color/rgb/${colorRgb}`}
+                text="Know More..."
+                show={true}
+                className="mt-[2vh] bg-white text-black hover:bg-black hover:text-white"
+              />
+            </div>
           </div>
-        </div>
-      </Fragment>
+        )}
+      </div>
       <ToastComp />
     </Fragment>
   );

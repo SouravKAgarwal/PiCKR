@@ -13,28 +13,36 @@ import { Fragment } from "react";
 function App() {
   return (
     <Fragment>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route exact path="/color/:type/:color" element={<ColorInfo />} />
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/color/shades" element={<ColorsDisplay />} />
-          <Route exact path="/color" element={<Colors />} />
-          <Route
-            exact
-            path={`/color/shades/:type/:mode/:color`}
-            element={<ColorShades />}
-          />
-          <Route exact path="/color/palette" element={<ColorPalette />} />
-          <Route
-            path="*"
-            element={
-              <ErrorComponent errorCode="404" errorMessage="Page Not Found!" />
-            }
-          />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <div className="relative bg-[#F5F1E8]">
+        <div className="absolute inset-0 bg-white/75" />
+        <div className="relative">
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route exact path="/color/:type/:color" element={<ColorInfo />} />
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/color/shades" element={<ColorsDisplay />} />
+              <Route exact path="/color" element={<Colors />} />
+              <Route
+                exact
+                path={`/color/shades/:type/:mode/:color`}
+                element={<ColorShades />}
+              />
+              <Route exact path="/color/palette" element={<ColorPalette />} />
+              <Route
+                path="*"
+                element={
+                  <ErrorComponent
+                    errorCode="404"
+                    errorMessage="Page Not Found!"
+                  />
+                }
+              />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </div>
+      </div>
     </Fragment>
   );
 }

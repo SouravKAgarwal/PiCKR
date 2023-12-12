@@ -14,7 +14,7 @@ const Heading = ({ name, mode, show, spanText, spanShow, className, textClass })
             {mode}
           </span>
           {spanShow && (
-            <span className="sm:text-md w-9/10 text-center xs:text-[1.9vh] text-gray-900">
+            <span className="sm:text-md font-medium w-9/10 text-center xs:text-[1.9vh] text-gray-900">
               {spanText}
             </span>
           )}

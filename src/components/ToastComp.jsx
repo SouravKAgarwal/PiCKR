@@ -5,7 +5,7 @@ const ToastComp = () => {
     <div>
       <Toaster
         position="bottom-center"
-        autoClose={500}
+        autoClose={50}
         reverseOrder={true}
         toastOptions={{
           style: {

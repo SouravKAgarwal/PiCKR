@@ -68,9 +68,10 @@ const ColorInfo = () => {
         <Spinner className="h-[84vh]" />
       ) : (
         <Fragment>
-          <div className="flex flex-col items-center p-4">
-            <Heading name={colorName} show={true} textClass="text-[1.8rem]" />
-            <div className="flex max-w-2xl flex-wrap justify-center items-center">
+          <div className="relative homeImg flex flex-col items-center p-4">
+            <div className="absolute inset-0 bg-white/75"></div>
+            <Heading name={colorName} show={true} textClass="text-[1.8rem]" className="relative"/>
+            <div className="relative flex max-w-2xl flex-wrap justify-center items-center">
               <div className="flex w-40 h-40">
                 <img
                   className="w-full h-full border-2 border-black select-none se rounded-xl"

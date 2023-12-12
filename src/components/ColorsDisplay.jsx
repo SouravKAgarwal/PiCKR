@@ -24,7 +24,7 @@ const ColorsDisplay = () => {
       if (color.length > 0) {
         if (
           color.indexOf("#") !== -1 &&
-          (color.length === 4 || color.length === 7)
+          (color.length <=7 && color.length !== 6)
         ) {
           setType("hex");
           toast.remove();
@@ -47,15 +47,16 @@ const ColorsDisplay = () => {
 
   return (
     <>
-      <div className="flex justify-center min-h-[84vh]">
-        <div className="flex flex-col items-center justify-center">
+      <div className="flex justify-center min-h-[91vh] homeImg">
+        <div className="absolute inset-0 bg-white/75"></div>
+        <div className="relative flex flex-col items-center justify-center">
           <div className="flex w-full flex-col md:flex-row justify-center md:items-start md:gap-16">
             <div className="flex flex-col items-center justify-center mt-10 gap-4">
               <h4 className="font-bold">Enter the color code</h4>
               <input
                 type="text"
                 placeholder="#FFFFFF or rgb(255,255,255)"
-                className="py-2 px-4 border-2 outline-none rounded-[100px] placeholder:text-sm placeholder:select-none"
+                className="py-2 px-4 border-2 outline-none rounded-[100px] placeholder:text-sm placeholder:select-none focus:border-black"
                 onChange={(e) => setColor(e.target.value)}
               />
             </div>
@@ -64,7 +65,7 @@ const ColorsDisplay = () => {
 
               <div className="relative">
                 <select
-                  className="w-full py-2 px-4 outline-none border-2 rounded-[100px] text-black bg-white shadow-sm focus:border-black"
+                  className="w-full py-[10px] px-4 outline-none border-2 rounded-[100px] text-black bg-white shadow-sm focus:border-black"
                   onChange={(e) => setMode(e.target.value)}
                 >
                   {modes.map(({ id, mode }) => (
@@ -77,7 +78,7 @@ const ColorsDisplay = () => {
           <LinkButton
             link={
               colorCode && mode
-                ? `/color/shades/${type}/${mode}/${colorCode.toLowerCase()}`
+                ? `/color/shades/${type}/${mode}/${colorCode.toUpperCase()}`
                 : "/color/shades"
             }
             text="Load Shades"

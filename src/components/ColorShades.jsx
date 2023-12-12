@@ -66,7 +66,10 @@ const ColorShades = ({
     fetchColorScheme();
   }, [params.color, params.mode, colorHexCode, colorRgbCode, mode, type]);
 
-  const notify = () => toast.success("Copied to Clipboard!");
+  const notify = () =>
+    toast.success("Copied to Clipboard!", {
+      id: "clipboard",
+    });
 
   return (
     <Fragment>
@@ -74,7 +77,7 @@ const ColorShades = ({
         colorSpin ? (
           <Spinner className="h-[30vh]" />
         ) : (
-          <Spinner className="h-[84vh]" />
+          <Spinner className="h-[91vh]" />
         )
       ) : errorFound ? (
         <ErrorComponent
@@ -97,7 +100,7 @@ const ColorShades = ({
           <div className="flex flex-wrap justify-center items-center p-2">
             {shades.map((shade, index) => (
               <div
-                className="flex flex-col items-center m-1 border-2 border-black rounded-xl font-semibold text-md w-32"
+                className="flex flex-col items-center m-1 border-2 bg-white border-black rounded-xl font-semibold text-md w-32"
                 key={index}
               >
                 <CopyToClipboard text={`${shade.hex.value}`}>
@@ -108,7 +111,7 @@ const ColorShades = ({
                     alt={shade.hex.clean}
                   />
                 </CopyToClipboard>
-                <div className="select-none text-black rounded-none border-none bg-transparent px-6 py-3">
+                <div className="select-none text-black rounded-none border-none rounded-b-xl px-6 py-3">
                   {shade.hex.value}
                 </div>
               </div>

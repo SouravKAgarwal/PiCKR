@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, Fragment } from "react";
 import colorScheme from "color-scheme";
 import { GrClipboard } from "react-icons/gr";
 import { toast } from "react-hot-toast";
@@ -28,7 +28,9 @@ function ColorPalette() {
 
   const copyToClipboard = (color) => {
     navigator.clipboard.writeText(color);
-    toast.success(`Copied ${color}`);
+    toast.success(`Copied to Clipboard!`, {
+      id: "clipboard",
+    });
   };
 
   const getContrastTextColor = (bgColor) => {
@@ -67,7 +69,7 @@ function ColorPalette() {
   const buttonText = isSmallDevice ? "Generate" : "Spacebar";
 
   return (
-    <div className="mx-auto">
+    <Fragment>
       <div className="flex flex-col justify-center items-center h-[25vh]">
         <div className="title flex flex-col items-center">
           <Heading
@@ -88,7 +90,7 @@ function ColorPalette() {
           </button>
         )}
       </div>
-      <div className="flex flex-wrap justify-center items-center md:justify-start h-[66vh]">
+      <div className="relative flex flex-wrap justify-center items-center md:justify-start h-[66vh]">
         {colors.map((color, index) => (
           <div key={index} className="w-screen md:w-1/5 h-1/5 md:h-[100%]">
             <div
@@ -112,7 +114,7 @@ function ColorPalette() {
       </div>
 
       <ToastComp />
-    </div>
+    </Fragment>
   );
 }
 

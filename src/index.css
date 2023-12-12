@@ -35,6 +35,11 @@
   box-sizing: border-box;
 }
 
+.homeImg {
+  background: url(./assets/bg2.jpeg);
+  background-repeat: no-repeat;
+}
+
 @layer utilities {
   body {
     background: linear-gradient(#fff, #f1f1f1);
